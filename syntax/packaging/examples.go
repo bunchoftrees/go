@@ -14,6 +14,7 @@ func main() {
 	fmt.Printf("The circumference of a circle with the radius %v is %v\n", myRadius,
 		measurements.Circumference(myRadius))
 
+	// TODO: refactor using a struct to define a rectangle (https://www.golang-book.com/books/intro/9)
 	var recHeight float64 = 3
 	var recWidth float64 = 4
 	recArea := measurements.AreaRectangle(recHeight, recWidth)
