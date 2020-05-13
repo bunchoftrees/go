@@ -3,24 +3,25 @@ package main
 import (
 	"fmt"
 	"github.com/bunchoftrees/go/syntax/packaging/greet"
-	"github.com/bunchoftrees/go/syntax/packaging/measurements"
+	"github.com/bunchoftrees/go/syntax/packaging/shapes"
 )
 
 func main() {
 	greet.SayHello()
-	var myRadius float64 = 5
 
-	fmt.Printf("The area of a circle with the radius %v is %v\n", myRadius, measurements.AreaCircle(myRadius))
-	fmt.Printf("The circumference of a circle with the radius %v is %v\n", myRadius,
-		measurements.Circumference(myRadius))
+	// My Circle
+	myCircle := shapes.NewCircle(5)
+	fmt.Printf("My circle has a radius of %v units.\n", myCircle.Radius)
+	fmt.Printf("The area this circle is %v square units.\n", myCircle.Area())
+	fmt.Printf("The circumference this circle is %v units.\n", myCircle.Circumference())
+	// TODO: Implement getter for radius
 
-	// TODO: refactor using a struct to define a rectangle (https://www.golang-book.com/books/intro/9)
-	var recHeight float64 = 3
-	var recWidth float64 = 4
-	recArea := measurements.AreaRectangle(recHeight, recWidth)
-	recPerimeter := measurements.Perimeter(recHeight, recWidth)
-	recDiagonal := measurements.Diagonal(recHeight, recWidth)
-	fmt.Printf("The area of a rectangle of height %v and width %v is %v\n", recHeight, recWidth, recArea)
-	fmt.Printf("The perimeter of a rectangle of height %v and width %v is %v\n", recHeight, recWidth, recPerimeter)
-	fmt.Printf("The diagonal of a rectangle of height %v and width %v is %v\n", recHeight, recWidth, recDiagonal)
+	// My Rectangle
+	myRectangle := shapes.NewRectangle(3, 4)
+	fmt.Printf("My rectangle has a width of %v units and a length of %v units.\n", myRectangle.Width, myRectangle.Length)
+	myRectangle.IsSquare()
+	fmt.Printf("The area of this rectangle is %v square units.\n", myRectangle.Area())
+	fmt.Printf("The perimeter of this rectangle is %v units.\n", myRectangle.Perimeter())
+	fmt.Printf("The diagonal of this rectangle has a length of %v units.\n", myRectangle.Diagonal())
+	// TODO: Implement getter for width and length
 }
